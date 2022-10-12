@@ -9,6 +9,9 @@ import {
 import React, { useEffect, useState } from "react";
 import { COLOURS, Items } from "./../database/Database";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 const Home = ({ navigation }) => {
   const [hoodie, setHoodie] = useState([]);

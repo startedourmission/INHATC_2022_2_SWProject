@@ -6,7 +6,6 @@ import ProductInfo from "./components/screens/ProductInfo";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-
   return (
     <NavigationContainer>
       <Stack.Navigator
