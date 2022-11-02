@@ -19,7 +19,6 @@ export const Items = [
     productPrice: "50000",
     description: "very warm | super gimotti | very cheap",
     isOff: true,
-    offPercentage: 10,
     productImage: require("../database/images/hoodie/hoodie1.jpg"),
     isAvaliable: true,
     productImageList: [
@@ -65,7 +64,7 @@ export const Items = [
     productPrice: "50000",
     description: "very warm | super gimotti | very cheap",
     isOff: true,
-    offPercentage: 10,
+
     productImage: require("../database/images/shirts/shirts1.jpg"),
     isAvaliable: true,
     productImageList: [
@@ -81,7 +80,6 @@ export const Items = [
     productPrice: "30000",
     description: "very warm | super gimotti | very cheap",
     isOff: true,
-    offPercentage: 10,
     productImage: require("../database/images/hoodie/hoodie2.jpg"),
     isAvaliable: false,
     productImageList: [
@@ -97,7 +95,6 @@ export const Items = [
     productPrice: "70000",
     description: "very warm | super gimotti | very cheap",
     isOff: true,
-    offPercentage: 10,
     productImage: require("../database/images/jacket/jacket2.jpg"),
     isAvaliable: true,
     productImageList: [
@@ -113,7 +110,6 @@ export const Items = [
     productPrice: "35000",
     description: "very warm | super gimotti | very cheap",
     isOff: true,
-    offPercentage: 18,
     productImage: require("../database/images/pants/pants2.jpg"),
     isAvaliable: false,
     productImageList: [
@@ -129,7 +125,6 @@ export const Items = [
     productPrice: "25000",
     description: "very warm | super gimotti | very cheap",
     isOff: true,
-    offPercentage: 10,
     productImage: require("../database/images/shirts/shirts2.jpg"),
     isAvaliable: false,
     productImageList: [

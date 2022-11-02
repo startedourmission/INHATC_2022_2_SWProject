@@ -10,10 +10,19 @@ import React, { useEffect, useState } from "react";
 import { COLOURS, Items } from "./../database/Database";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import MyCart from "./MyCart";
+import ProductInfo from "./ProductInfo";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator(); //여기서 navigation이 안먹어 그래서
+//productInfo로 안넘어 가는게 아닌가
 
 const Home = ({ navigation }) => {
+  // <NavigationContainer>
+  //   <Stack.Screen name="MyCart" component={MyCart} />
+  //   <Stack.Screen name="ProductInfo" component={ProductInfo} />
+  // </NavigationContainer>; 느낌상 홈에서 navigation 을 따로 걸어야할거 같은 느낌
+
   const [hoodie, setHoodie] = useState([]);
   const [jacket, setJacket] = useState([]);
   const [pants, setPants] = useState([]);
@@ -117,7 +126,8 @@ const Home = ({ navigation }) => {
         >
           {data.productName}
         </Text>
-        {data.category === "pants" ? (
+        {/* {data.category === "pants"  ? ( */}
+        {
           data.isAvaliable === true ? (
             <View
               style={{
@@ -167,7 +177,8 @@ const Home = ({ navigation }) => {
               </Text>
             </View>
           )
-        ) : null}
+          /* ) : null} */
+        }
         <Text>&#8361; {data.productPrice}</Text>
       </TouchableOpacity>
     );
@@ -204,7 +215,7 @@ const Home = ({ navigation }) => {
               }}
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("MyCart")}>
             <FontAwesome
               name="user"
               style={{

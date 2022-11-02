@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const CategoryTab = () => {
+const Search = () => {
   return (
     <View>
-      <Text>CategoryTab</Text>
+      <Text>Search</Text>
     </View>
   );
 };
 
-export default CategoryTab;
+export default Search;

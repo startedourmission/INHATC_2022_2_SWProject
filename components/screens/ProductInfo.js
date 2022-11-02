@@ -8,6 +8,7 @@ import {
   Image,
   Dimensions,
   Animated,
+  ToastAndroid,
 } from "react-native";
 import { React, useState, useEffect } from "react";
 import { Items } from "../database/Database";
@@ -15,6 +16,7 @@ import { COLOURS } from "./../database/Database";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Entypo } from "react-native-vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ProductInfo = ({ route, navigation }) => {
   const { productID } = route.params;
@@ -40,6 +42,33 @@ const ProductInfo = ({ route, navigation }) => {
       if (Items[index].id === productID) {
         await setProduct(Items[index]);
         return;
+      }
+    }
+  };
+
+  const addToCart = async (id) => {
+    let itemArray = await AsyncStorage.getItem("cartItems");
+    itemArray = JSON.parse(itemArray);
+    if (itemArray) {
+      let array = itemArray;
+      array.push(id);
+
+      try {
+        await AsyncStorage.setItem("cartItems", JSON.stringify(array));
+        ToastAndroid.show("장바구니에 추가되었습니다", ToastAndroid.SHORT);
+        navigation.navigate("Home");
+      } catch (error) {
+        return error;
+      }
+    } else {
+      let array = [];
+      array.push(id);
+      try {
+        await AsyncStorage.setItem("cartItems", JSON.stringify(array));
+        ToastAndroid.show("장바구니에 추가되었습니다", ToastAndroid.SHORT);
+        navigation.navigate("Home");
+      } catch (error) {
+        return error;
       }
     }
   };
@@ -101,7 +130,7 @@ const ProductInfo = ({ route, navigation }) => {
               paddingLeft: 16,
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack("Home")}>
               <FontAwesome
                 name="angle-left"
                 style={{
@@ -272,10 +301,69 @@ const ProductInfo = ({ route, navigation }) => {
                   }}
                 />
               </View>
+              <Text>인천광역시 미추홀구 인하로105번길</Text>
             </View>
+            <Entypo
+              name="chevron-right"
+              style={{
+                fontSize: 22,
+                color: COLOURS.backgroundDark,
+              }}
+            />
+          </View>
+          <View
+            style={{
+              paddingHorizontal: 16,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "500",
+                maxWidth: "85%",
+                color: COLOURS.black,
+                marginBottom: 4,
+              }}
+            >
+              &#8361; {product.productPrice}
+            </Text>
           </View>
         </View>
       </ScrollView>
+
+      <View
+        style={{
+          position: "absolute",
+          bottom: 10,
+          height: "8%",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => (product.isAvaliable ? addToCart(product.id) : null)}
+          style={{
+            width: "86%",
+            height: "90%",
+            backgroundColor: COLOURS.blue,
+            borderRadius: 20,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "500",
+              letterSpacing: 1,
+              color: COLOURS.white,
+            }}
+          >
+            {product.isAvaliable ? "장바구니에 추가" : "품절"}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
