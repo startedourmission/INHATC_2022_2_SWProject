@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const userInfo = () => {
+const UserInfo = () => {
   return (
     <View>
-      <Text>userInfo</Text>
+      <Text>UserInfo</Text>
     </View>
   );
 };
 
-export default userInfo;
+export default UserInfo;

@@ -7,10 +7,12 @@ import ProductInfo from "./components/screens/ProductInfo";
 import Category from "./components/screens/CategoryTab";
 import CategoryTab from "./components/screens/CategoryTab";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import Search from "./components/screens/Search";
+import UserInfo from "./components/screens/UserInfo";
 
 const Tab = createBottomTabNavigator();
-
 const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -30,6 +32,7 @@ export default function App() {
 // function BottomTabNavigationApp() {
 //   return (
 //     <NavigationContainer>
+
 //       <Tab.Navigator initialRouteName="Home">
 //         <Tab.Screen
 //           name="Category"
