@@ -540,7 +540,7 @@ const MyCart = ({ navigation }) => {
                   opacity: 0.5,
                 }}
               >
-                Total
+                주문총액
               </Text>
               <Text
                 style={{
@@ -549,7 +549,7 @@ const MyCart = ({ navigation }) => {
                   color: COLOURS.black,
                 }}
               >
-                &#8361;{total + total / 20}
+                &#8361; {total + total / 20}
               </Text>
             </View>
           </View>
@@ -585,7 +585,7 @@ const MyCart = ({ navigation }) => {
               color: COLOURS.white,
             }}
           >
-            CHECKOUT (&#8361;{total} )
+            결제 (&#8361; {total + total / 20})
           </Text>
         </TouchableOpacity>
       </View>
