@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Text,
   Image,
+  TextInput,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { COLOURS, Items } from "./../database/Database";
@@ -13,6 +14,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import MyCart from "./MyCart";
 import ProductInfo from "./ProductInfo";
+import { Entypo } from "react-native-vector-icons";
 
 const Stack = createNativeStackNavigator(); //여기서 navigation이 안먹어 그래서
 //productInfo로 안넘어 가는게 아닌가
@@ -80,33 +82,6 @@ const Home = ({ navigation }) => {
             marginBottom: 8,
           }}
         >
-          {/* {data.isOff ? (
-            <View
-              style={{
-                position: "absolute",
-                width: "30%",
-                height: "34%",
-                backgroundColor: COLOURS.green,
-                top: 0,
-                left: 0,
-                borderTopLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: COLOURS.white,
-                  fontWeight: "bold",
-                  letterSpacing: 1,
-                }}
-              >
-                {data.offPercentage}%
-              </Text>
-            </View> 
-          ) : null} //상품 할인율 띄워주는 부분 */}
           <Image
             source={data.productImage}
             style={{
@@ -126,7 +101,6 @@ const Home = ({ navigation }) => {
         >
           {data.productName}
         </Text>
-        {/* {data.category === "pants"  ? ( */}
         {
           data.isAvaliable === true ? (
             <View
@@ -184,6 +158,15 @@ const Home = ({ navigation }) => {
     );
   };
 
+  // state = {
+  //   text: "",
+  //   InputText: "",
+  // };
+
+  // SubmitBtn = () => {
+  //   this.setState({ text: this.state.InputText });
+  // };
+
   return (
     <View
       style={{
@@ -202,38 +185,57 @@ const Home = ({ navigation }) => {
             padding: 16,
           }}
         >
-          <TouchableOpacity>
-            <FontAwesome
-              name="search"
+          <TouchableOpacity onPress={() => navigation.navigate("CategoryTab")}>
+            <Entypo
+              name="menu"
               style={{
-                fontSize: 16,
+                fontSize: 20,
                 color: COLOURS.backgroundDark,
                 padding: 12,
                 borderRadius: 10,
                 borderColor: COLOURS.backgroundLight,
-                marginTop: 30,
               }}
             />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("MyCart")}>
             <FontAwesome
-              name="user"
+              name="shopping-cart"
               style={{
-                fontSize: 16,
+                fontSize: 20,
                 color: COLOURS.backgroundDark,
                 padding: 12,
                 borderRadius: 10,
                 borderColor: COLOURS.backgroundLight,
-                marginTop: 30,
               }}
             />
           </TouchableOpacity>
         </View>
         <View
           style={{
-            padding: 16,
+            padding: 10,
           }}
         >
+          <View
+            style={{
+              flexDirection: "row",
+            }}
+          >
+            <FontAwesome
+              name="search"
+              style={{
+                fontSize: 20,
+                color: COLOURS.backgroundDark,
+                padding: 12,
+                borderRadius: 10,
+                borderColor: COLOURS.backgroundLight,
+                marginBottom: 20,
+              }}
+            />
+            <TextInput
+              style={{ marginBottom: 20 }}
+              placeholder="아무거나 입력해주세요."
+            />
+          </View>
           <View
             style={{
               flexDirection: "row",

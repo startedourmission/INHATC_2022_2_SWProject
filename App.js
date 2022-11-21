@@ -4,11 +4,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/screens/Home";
 import MyCart from "./components/screens/MyCart";
 import ProductInfo from "./components/screens/ProductInfo";
-import Category from "./components/screens/CategoryTab";
 import CategoryTab from "./components/screens/CategoryTab";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Search from "./components/screens/Search";
-import UserInfo from "./components/screens/UserInfo";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,6 +22,8 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MyCart" component={MyCart} />
         <Stack.Screen name="ProductInfo" component={ProductInfo} />
+        <Stack.Screen name="CategoryTab" component={CategoryTab} />
+        <Stack.Screen name="Search" component={Search} />
       </Stack.Navigator>
     </NavigationContainer>
   );

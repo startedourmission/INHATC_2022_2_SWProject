@@ -59,7 +59,7 @@ export const Items = [
   },
   {
     id: 4,
-    category: "shirts",
+    category: "hoodie",
     productName: "Khaki shirts",
     productPrice: 50000,
     description: "very warm | super gimotti | very cheap",
@@ -120,7 +120,7 @@ export const Items = [
   },
   {
     id: 8,
-    category: "shirts",
+    category: "hoodie",
     productName: "Black Shirts",
     productPrice: 25000,
     description: "very warm | super gimotti | very cheap",
