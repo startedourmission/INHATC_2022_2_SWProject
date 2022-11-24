@@ -24,6 +24,7 @@ const ProductInfo = ({ route, navigation }) => {
   const [product, setProduct] = useState({});
 
   const width = Dimensions.get("window").width;
+  const height = Dimensions.get("window").height;
 
   const scrollX = new Animated.Value(0);
 
@@ -78,7 +79,7 @@ const ProductInfo = ({ route, navigation }) => {
       <View
         style={{
           width: width,
-          height: 240,
+          height: 300,
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -88,7 +89,7 @@ const ProductInfo = ({ route, navigation }) => {
           style={{
             width: "100%",
             height: "100%",
-            resizeMode: "contain",
+            resizeMode: "stretch",
           }}
         />
       </View>

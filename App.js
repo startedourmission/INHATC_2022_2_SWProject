@@ -7,6 +7,8 @@ import ProductInfo from "./components/screens/ProductInfo";
 import CategoryTab from "./components/screens/CategoryTab";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Search from "./components/screens/Search";
+import RegistrationScreen from "./components/screens/RegistrationScreen";
+import Login from "./components/screens/Login";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -15,10 +17,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="RegistrationScreen"
         screenOptions={{
           headerShown: false,
         }}
       >
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen
+          name="RegistrationScreen"
+          component={RegistrationScreen}
+        />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MyCart" component={MyCart} />
         <Stack.Screen name="ProductInfo" component={ProductInfo} />
