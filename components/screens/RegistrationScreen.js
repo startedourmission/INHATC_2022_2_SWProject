@@ -15,9 +15,9 @@ import Loader from "./Loader";
 const RegistrationScreen = ({ navigation }) => {
   const [inputs, setInputs] = React.useState({
     email: "",
-    fullname: "",
     phone: "",
     password: "",
+    address: "",
   });
   const [errors, setErrors] = React.useState({});
   const [loading, setLoading] = React.useState(false);
@@ -34,8 +34,8 @@ const RegistrationScreen = ({ navigation }) => {
       isValid = false;
     }
 
-    if (!inputs.fullname) {
-      handleError("Please input fullname", "fullname");
+    if (!inputs.address) {
+      handleError("주소를 입력해주세요", "address");
       isValid = false;
     }
 
@@ -122,6 +122,14 @@ const RegistrationScreen = ({ navigation }) => {
             placeholder="비밀번호를 입력해주세요"
             error={errors.password}
             password
+          />
+          <Input
+            onChangeText={(text) => handleOnchange(text, "address")}
+            onFocus={() => handleError(null, "address")}
+            iconName="home"
+            label="주소"
+            placeholder="주소를 입력해주세요"
+            error={errors.address}
           />
           <Button title="회원가입" onPress={validate} />
           <Text
